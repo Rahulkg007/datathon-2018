@@ -62,7 +62,7 @@ object_size(data)
 head(data)
 
 # Exploring Transaction data
-ggplot(data,aes(Mode)) + geom_bar() 
+ggplot(data,aes(Mode)) + geom_bar() + scale_y_continuous(labels = comma)
 # --> highest to lowest 2, 1 and 3
 
 # card types

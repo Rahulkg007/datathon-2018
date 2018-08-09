@@ -1,5 +1,6 @@
 # Ignore source folder
 MelbDatathon2018/
+.idea/
 
 # Mac Ignore
 .DS_Store

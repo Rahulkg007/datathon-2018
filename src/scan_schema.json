@@ -1,0 +1,47 @@
+[
+    {
+    "mode": "NULLABLE", 
+    "name": "Mode", 
+    "type": "INTEGER"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "BusinessDate", 
+    "type": "DATE"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "DateTime", 
+    "type": "DATETIME"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "CardID", 
+    "type": "INTEGER"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "CardType", 
+    "type": "INTEGER"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "VehicleID", 
+    "type": "INTEGER"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "ParentRoute", 
+    "type": "STRING"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "RouteID", 
+    "type": "INTEGER"
+    }, 
+    {
+    "mode": "NULLABLE", 
+    "name": "StopID", 
+    "type": "INTEGER"
+    }
+]
