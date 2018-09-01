@@ -15,12 +15,20 @@ require(scales)
 
 setwd("~/Documents/Projects/Datathon/MelbDatathon2018")
 
+library(RPostgres)
+library(DBI)
+schemaA_con <- dplyr::src_postgres(dbname = 'datathon', host='127.0.0.1', user = 'rahul-datathon',password="rahul", options = paste0("-c search_path=", 'app'))
+
+
 # Show High Precision Number like lat and long
 options("digits" = 15)
 
 # card_types
 col_names = c('Card_SubType_ID','Card_SubType_Desc','Payment_Type','Fare_Type','Concession_Type','MI_Card_Group')
 card_types = read_delim('card_types.txt', delim ='|', col_names = col_names)
+require(RPostgreSQL)
+# dbWriteTable(schemaA_con$con, "card_types", card_types)
+card_types[card_types$Card_SubType_ID==1,]
 
 
 # Calendar
@@ -29,15 +37,21 @@ col_names = c('Date','Date1','CalendarYear','FinancialYear','FinancialMonth','Ca
               'DayTypeCategory2','WeekdaySeq',
               'WeekDay','FinancialMonthSeq','FinancialMonthName','MonthNumber','ABSWeek','WeekEnding','QuarterName')
 calendar = read_delim('calendar.txt', delim ='|', col_names = col_names)
+#dbWriteTable(schemaA_con$con, "calendar", calendar)
 
 # stop_locations
 col_names = c('StopLocationID','StopNameShort','StopNameLong','StopType','SuburbName','PostCode','RegionName',
               'LocalGovernmentArea','StatDivision','GPSLat','GPSLong')
 stop_locations = read_delim('stop_locations.txt', delim ='|', col_names = col_names)
-
+# dbWriteTable(schemaA_con$con, "stop_locations", stop_locations)
+stop_locations[stop_locations$StopLocationID==21002,]
+stop_locations[stop_locations$GPSLat]
 # Car Speeds
 vehicle_traffic = read_csv('car_speeds/melbourne_vehicle_traffic.csv')
 head(vehicle_traffic)
+# dbWriteTable(schemaA_con$con, "vehicle_traffic", vehicle_traffic)
+vehicle_traffic[vehicle_traffic$`location index`==6,]
+
 
 # Sample of Scan on transaction - Sample 1
 col_names = c('Mode','BusinessDate','DateTime','CardID','CardType','VehicleID','ParentRoute','RouteID','StopID')
@@ -112,3 +126,12 @@ ggplot(card_desc) +
   scale_y_continuous(labels = comma)
 
 x = data.frame(table(data$RouteID))
+
+#  Analysis on tram 11
+setwd("~/Documents/Projects/Datathon")
+tram_11 = read_csv('data/tram_11.csv')
+
+3700 / .2 
+
+20000/3
+6666/12

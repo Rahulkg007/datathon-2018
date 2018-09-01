@@ -1,0 +1,1 @@
+SELECT * FROM `melbourne-datathon-211508.source.stop_locations` where lower(StopNameLong) like lower('%West%Preston%')
